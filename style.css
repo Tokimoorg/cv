@@ -1,21 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --bg-primary: #08090d;
-  --bg-secondary: #0e1118;
+  --bg-primary: #050505;
+  --bg-secondary: #121214;
   --card-bg: rgba(255, 255, 255, 0.02);
   --card-bg-hover: rgba(255, 255, 255, 0.05);
   --card-border: rgba(255, 255, 255, 0.06);
-  --card-border-hover: rgba(114, 137, 218, 0.4);
+  --card-border-hover: rgba(139, 92, 246, 0.4);
   
   --accent-discord: #5865F2;
-  --accent-purple: #7289da;
-  --accent-cyan: #00f2fe;
-  --accent-blue: #4facfe;
+  --accent-purple: #8b5cf6;
+  --accent-cyan: #06b6d4;
+  --accent-blue: #3b82f6;
   --accent-green: #23a55a; 
   
-  --text-primary: #f3f4f6;
-  --text-secondary: #a1a1aa;
+  --text-primary: #f5f5f7;
+  --text-secondary: #d1d5db;
   --text-muted: #71717a;
   
   --font-title: 'Outfit', sans-serif;
@@ -23,8 +23,8 @@
   
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glow-purple: 0 0 20px rgba(114, 137, 218, 0.25);
-  --glow-cyan: 0 0 20px rgba(0, 242, 254, 0.25);
+  --glow-purple: 0 0 20px rgba(139, 92, 246, 0.25);
+  --glow-cyan: 0 0 20px rgba(59, 130, 246, 0.25);
 }
 
 * {
@@ -45,8 +45,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(circle at 10% 20%, rgba(114, 137, 218, 0.06) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(0, 242, 254, 0.04) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(139, 92, 246, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.04) 0%, transparent 40%);
   background-attachment: fixed;
 }
 
@@ -153,7 +153,7 @@ section {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(8, 9, 13, 0.7);
+  background: rgba(5, 5, 5, 0.75);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--card-border);
   transition: var(--transition);
@@ -785,7 +785,7 @@ section {
   border-top: 1px solid var(--card-border);
   padding: 40px 0;
   text-align: center;
-  background: #06070a;
+  background: #050505;
 }
 
 .footer-text {
