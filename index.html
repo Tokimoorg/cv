@@ -5,10 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tokimo9 | Portafolio Personal</title>
   <meta name="description" content="Portafolio de Tokimo9, desarrollador autodidacta especializado en bots de Discord, páginas web y gestión de comunidades.">
+  <meta name="keywords" content="Tokimo9, desarrollador, discord, bots, páginas web, html, css, js, nodejs, python, staff, comunidades">
   <meta name="author" content="Tokimo9">
-  
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tokimo9.dev/">
+  <meta property="og:title" content="Tokimo9 | Portafolio Personal">
+  <meta property="og:description" content="Portafolio de Tokimo9, desarrollador autodidacta especializado en bots de Discord, páginas web y gestión de comunidades.">
+  <meta property="og:image" content="./imagenes/logo.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Tokimo9 | Portafolio Personal">
+  <meta property="twitter:description" content="Portafolio de Tokimo9, desarrollador autodidacta especializado en bots de Discord, páginas web y gestión de comunidades.">
+  <meta property="twitter:image" content="./imagenes/logo.png">
   <link rel="stylesheet" href="./style.css">
-  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -20,7 +28,7 @@
         <span class="logo-text">Tokimo9</span>
       </a>
       
-      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú">
+      <button class="menu-toggle" id="mobile-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
         <span></span>
         <span></span>
         <span></span>
@@ -66,7 +74,6 @@
         </div>
         
         <div class="about-services-grid">
-          
           <div class="service-card">
             <div class="service-icon-box">
               <i class="fa-solid fa-users"></i>
@@ -106,10 +113,14 @@
   <section class="staff" id="staff">
     <div class="container">
       <h2 class="section-title">Experiencia como Staff</h2>
-      <p class="section-subtitle">Más de 2 años gestionando diferentes comunidades, con diferentes roles y permisos.<br><span style="opacity: 0.7; font-size: 0.85rem; display: block; margin-top: 8px;">* La cantidad de miembros refleja un aproximado del período en el que formé parte del staff.</span></p>
+      <p class="section-subtitle">
+        Más de 2 años gestionando diferentes comunidades, con diferentes roles y permisos.
+        <span style="opacity: 0.7; font-size: 0.85rem; display: block; margin-top: 8px;">
+          * La cantidad de miembros refleja un aproximado del período en el que formé parte del staff.
+        </span>
+      </p>
       
       <div class="timeline">
-        
         <div class="timeline-item left-item">
           <div class="timeline-card">
             <div class="timeline-header">
@@ -167,7 +178,6 @@
       <p class="section-subtitle">Configuración de páginas web, automatizaciones y bots de Discord.</p>
       
       <div class="dev-grid">
-        
         <div class="dev-card">
           <div class="dev-card-icon">
             <i class="fa-brands fa-discord"></i>
@@ -249,7 +259,6 @@
       <p class="section-subtitle">Números que hablan de mi trayectoria y dedicación.</p>
       
       <div class="achievements-grid">
-        
         <div class="achievement-card">
           <div class="achievement-number">3+</div>
           <div class="achievement-label">Años de experiencia</div>
@@ -280,7 +289,6 @@
         <p class="section-subtitle">¿Necesitas un bot o página web para tus proyectos? ¿O capaz algún servidor de Discord? Contáctame.</p>
         
         <div class="contact-cards">
-          
           <div class="contact-card" id="discord-card" title="Haga clic para copiar el usuario de Discord">
             <div class="contact-icon">
               <i class="fa-brands fa-discord"></i>
@@ -289,7 +297,7 @@
             <span class="contact-val">tokimoorg</span>
             <span class="copy-toast" id="copy-toast">¡Copiado al portapapeles!</span>
           </div>
-
+ 
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=e123disonff@gmail.com" target="_blank" class="contact-card" title="Haga clic para enviar un correo vía Gmail">
             <div class="contact-icon">
               <i class="fa-regular fa-envelope"></i>
@@ -309,71 +317,76 @@
   </footer>
 
   <script>
-    
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
+    const discordCard = document.getElementById('discord-card');
+    const copyToast = document.getElementById('copy-toast');
+    const sections = document.querySelectorAll('section');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      navMenu.classList.toggle('active');
-      mobileMenuBtn.classList.toggle('open');
-
+    const toggleMenu = (open) => {
       const spans = mobileMenuBtn.querySelectorAll('span');
-      if (mobileMenuBtn.classList.contains('open')) {
+      if (open) {
+        navMenu.classList.add('active');
+        mobileMenuBtn.classList.add('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'true');
         spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
         spans[1].style.opacity = '0';
         spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
       } else {
+        navMenu.classList.remove('active');
+        mobileMenuBtn.classList.remove('open');
+        mobileMenuBtn.setAttribute('aria-expanded', 'false');
         spans[0].style.transform = 'none';
         spans[1].style.opacity = '1';
         spans[2].style.transform = 'none';
       }
+    };
+
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileMenuBtn.classList.contains('open');
+      toggleMenu(!isOpen);
     });
 
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) {
-          navMenu.classList.remove('active');
-          mobileMenuBtn.classList.remove('open');
-          const spans = mobileMenuBtn.querySelectorAll('span');
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
+        toggleMenu(false);
       });
     });
-
-    const discordCard = document.getElementById('discord-card');
-    const copyToast = document.getElementById('copy-toast');
 
     discordCard.addEventListener('click', () => {
       const username = 'tokimoorg';
-      navigator.clipboard.writeText(username).then(() => {
-        copyToast.classList.add('show');
-        setTimeout(() => {
-          copyToast.classList.remove('show');
-        }, 2000);
-      }).catch(err => {
-        console.error('Error al copiar al portapapeles: ', err);
-      });
+      navigator.clipboard.writeText(username)
+        .then(() => {
+          copyToast.classList.add('show');
+          setTimeout(() => {
+            copyToast.classList.remove('show');
+          }, 2000);
+        })
+        .catch(err => {
+          console.error('Error al copiar al portapapeles: ', err);
+        });
     });
 
-    const sections = document.querySelectorAll('section');
+    const scrollOffset = 150;
+    
     window.addEventListener('scroll', () => {
       let currentSection = '';
+      const scrollPosition = window.scrollY || document.documentElement.scrollTop;
       
       sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 120)) {
+        if (scrollPosition >= (sectionTop - scrollOffset)) {
           currentSection = section.getAttribute('id');
         }
       });
 
       navLinks.forEach(link => {
-        link.classList.remove('active');
+        const isCurrent = link.getAttribute('href') === `#${currentSection}`;
         
-        if (link.getAttribute('href') === `#${currentSection}`) {
+        link.classList.toggle('active', isCurrent);
+        
+        if (isCurrent) {
           link.style.color = 'var(--text-primary)';
           link.style.setProperty('--link-width', '100%');
         } else {
